@@ -1,4 +1,4 @@
-console.log('codewars')
+console.log('codewars!!')
 // Date
 
 // Kyu?
