@@ -52,7 +52,7 @@ const sequenceSum = (begin, end, step) => {
   };
 console.log(sequenceSum(2,6,2))
 // Codewars Solution 
-const sequenceSum = (begin, end, step) => {
+const sequenceSumCodewars = (begin, end, step) => {
     var sum = 0;
     for(var i=begin;i<=end;i+=step)
     {
