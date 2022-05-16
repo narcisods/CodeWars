@@ -52,3 +52,11 @@ const stray = (arr) => {
 
 // Codewars Solution 
 
+
+function stray(numbers){
+    for (var i in numbers){
+       if (numbers.indexOf(numbers[i]) === numbers.lastIndexOf(numbers[i])){return numbers[i]}
+    }
+  }
+
+// const stray = nums => nums.reduce((a, b) => a ^ b);
