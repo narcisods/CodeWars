@@ -43,7 +43,7 @@ const highAndLow = (str) => {
 }
 
 console.log(highAndLow(test))
-console.log(highAndLow(testTwo))
+
 
 // Codewars Solution 
 
