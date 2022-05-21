@@ -40,6 +40,6 @@ console.log('codewars')
     console.log(checkForFactor(10,2))
 // Codewars Solution 
 
-function checkForFactor (base, factor) {
-    return base % factor === 0;
-  }
+// function checkForFactor (base, factor) {
+//     return base % factor === 0;
+//   }
