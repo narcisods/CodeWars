@@ -1,12 +1,16 @@
 console.log('codewars')
-// Date
+// 6/6/22
 
-// Kyu?
-// Title
-// Link
+// Kyu 8
+// Grasshopper - Basic Function Fixer
+
+// https://www.codewars.com/kata/56200d610758762fb0000002/train/javascript
 
 //Details
+// Fix the function
+// I created this function to add five to any number that was passed in to it and return the new value. It doesn't throw any errors but it returns the wrong number.
 
+// Can you help me fix the function?
 
 
 
@@ -22,7 +26,13 @@ console.log('codewars')
 
 
 // My Solution
-
+function addFive(num) {
+    var total = num + 5
+    return total
+  }
 
 // Codewars Solution 
 
+// function addFive(num) {
+//     return num + 5;
+//   }
