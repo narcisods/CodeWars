@@ -29,7 +29,7 @@ console.log('codewars')
 
 //PREP
 //PARAMETER: What can you take in?
-    // 
+    //  
 //RETURNS: How? print to console? Return?
     //
 //EXAMPLES: Examples of how the code should work?
@@ -39,28 +39,32 @@ console.log('codewars')
 
 
 // My Solution
-const ballHeight = (height, b) => height*b
 
 
+// const bouncingBall = (h,  bounce,  window) => {
+//     let numberOfPasses = 1
+//     // check for the three conditions for a valid experiemnt 
+//     if (h <= 0 || bounce < 0 || bounce >= 1 || window >= h) {
+//         return -1
+//     } else {
+//         // create a function that calls itself if bounce height is greater than window
+//         (function checkBounce(bounceHeight, window) {
+//             if (bounceHeight> window) {
+//                 numberOfPasses += 2
+//                 checkBounce((bounceHeight*bounce),window)   
+//             }
+//         })((h*bounce),window) 
+//         return numberOfPasses
+//     } 
+// }
 
-const bouncingBall = (h,  bounce,  window) => {
-    let numberOfPasses = 1
-    // check for the three conditions for a valid experiemnt 
-    if (h <= 0 || bounce < 0 || bounce >= 1 || window > h) {
-        return -1
-    } else {
-        // create a function that calls itself if bounce height is greater than window
-        (function checkBounce(bounceHeight, window) {
-            if (bounceHeight> window) {
-                numberOfPasses += 2
-                checkBounce((bounceHeight*bounce),window)   
-            }
-        })((h*bounce),window) 
-        return numberOfPasses
-    } 
-}
 
 
 console.log(bouncingBall(3,.66,1.5))
 // Codewars Solution 
 
+function bouncingBall(h,  bounce,  window) {
+    var rebounds = -1;
+    if (bounce > 0 && bounce < 1) while (h > window) rebounds+=2, h *= bounce;
+    return rebounds;
+  }
