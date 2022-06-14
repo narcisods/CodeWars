@@ -51,13 +51,6 @@ console.log(checkExam(["a", "a", "c", "b"], ["a", "a", "b", ""]))
 // Codewars Solution 
 
 
-
-Intelligent Editing is hiring a Senior .NET Web Developer
-
-Zapier is hiring a Engineer, Site Reliability
-Fouad89, Ilya.senkevich, Shubhamkumar99, medfiras, takoua, costarafaelhugo, Nicksonaire, Pedro Henrique Nascimento, Bek@1389, pancakemix (plus 3 more warriors)
-
-
 // function checkExam(array1, array2) {
 // var score = 0;
   
