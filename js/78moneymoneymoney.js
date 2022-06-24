@@ -50,9 +50,7 @@ function calculateYears(principal,interest,tax,desired) {
     let yearsPassed = 0
         while (principal < desired) {
         yearsPassed++
-        let increasedAmount = principal * interest 
-        let taxedIncreasedAmount = increasedAmount - (increasedAmount*tax)
-        principal += taxedIncreasedAmount
+        principal += (principal * interest)  - ((principal * interest) *tax)
         }
     return yearsPassed
 }
@@ -60,3 +58,12 @@ function calculateYears(principal,interest,tax,desired) {
 console.log(calculateYears(1000,.05,.18,1100))
 // Codewars Solution 
 
+// function calculateYears(principal, interest, tax, desired) {
+//     // your code
+//     var years = 0;
+//     while(principal < desired){
+//       principal += (principal * interest) * (1 - tax);
+//       years++;
+//     }
+//     return years;
+// }
