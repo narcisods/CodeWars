@@ -33,10 +33,8 @@ console.log('codewars test')
 
 // My Solution
 function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
-    const current = new Date(currentDate)
-    const expired = new Date(expirationDate)
-    if (enteredCode === correctCode && Date.parse(expired) >= Date.parse(current)) {
-    return true
+    if (enteredCode === correctCode && new Date(expirationDate)>= new Date(currentDate)) {
+       return true
     } else {
         return false
     }
@@ -45,3 +43,6 @@ function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
 console.log(checkCoupon("123", "123", "July 9, 2015", "July 10, 2015"))
 // Codewars Solution 
 
+// function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
+//     return enteredCode === correctCode && Date.parse(expirationDate) >= Date.parse(currentDate)
+//   }
