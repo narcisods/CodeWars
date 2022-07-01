@@ -33,11 +33,18 @@ console.log('codewars test')
 
 // My Solution
 function findOdd(arr) {
-    let newArr = [...new Set(arr)]
-    return newArr
-}
-
-console.log(findOdd([1,1,2,1,1,3,3,5,5,1,1]))
+    //create an object that holds each item and the amount it is repeated
+        const counts = {}
+        arr.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; })
+    //return the property that has an odd number as its property
+        for (const property in counts) {
+            if (counts[property]%2===1) {
+                return Number(property)
+            }
+        }
+    }
+console.log(findOdd([1,2,2,3,3,3,4,3,3,3,2,2,1]))
 
 // Codewars Solution 
 
+// const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
