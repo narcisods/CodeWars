@@ -23,15 +23,15 @@ console.log('codewars test')
 
 
 // My Solution
-function gooseFilter(arr) {
-    result = []
-    const geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]
-    result = arr.filter(bird => !geese.includes(bird))
-    return result
-}
+// function gooseFilter(arr) {
+//     result = []
+//     const geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]
+//     result = arr.filter(bird => !geese.includes(bird))
+//     return result
+// }
 
-console.log(gooseFilter(["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]))
-// Codewars Solution 
+// console.log(gooseFilter(["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]))
+// // Codewars Solution 
 
 // function gooseFilter (birds) {
 //     var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
