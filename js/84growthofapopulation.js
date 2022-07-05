@@ -40,6 +40,7 @@ function nbYear(population, percent, addition,target) {
     return years
 }
 
+
 // Codewars Solution 
 // function nbYear(p0, percent, aug, p) {
     
