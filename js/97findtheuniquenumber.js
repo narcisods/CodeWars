@@ -31,7 +31,8 @@ console.log('codewars test')
 //EXAMPLES: Examples of how the code should work?
     //
 //PSEDUO CODE: Write pseduo code for everything
-    // Count each element by putting them into an object
+    // Count each element by putting them into an object using count[element] = [count[element]|| 0] +1
+    // use a for in loop. return the element that has a property of 1
 
 
 // My Solution
@@ -42,7 +43,7 @@ function findUniq(arr) {
     })
     for (const property in count) {
         if (count[property] === 1) {
-            return property
+            return Number(property)
         }
     }
 }
@@ -50,4 +51,8 @@ function findUniq(arr) {
 
 console.log(findUniq([1,1,1,2,1,1])) // 2
 // Codewars Solution 
+
+function findUniq(arr) {
+    return arr.find(n => arr.indexOf(n) === arr.lastIndexOf(n));
+  }
 
