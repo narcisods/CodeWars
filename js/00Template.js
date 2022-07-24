@@ -1,7 +1,7 @@
 console.log('codewars test')
 // Date
 
-// Kyu?
+// ? Kyu
 // Title
 // Link
 
