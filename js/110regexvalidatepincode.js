@@ -46,4 +46,4 @@ console.log(validatePIN('122d34'))
 //         if (pin[i] > '9' || pin[i] < '0')
 //             return false;
 //     return true;
-//   }
+//   } 
