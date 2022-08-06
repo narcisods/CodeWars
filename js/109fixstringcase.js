@@ -55,4 +55,4 @@ console.log(solve('CODe'))
 //       }
 //     }
 //     return lowerC >= upperC ? s.toLowerCase() : s.toUpperCase()
-// }
+// } 
