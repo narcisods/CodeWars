@@ -35,10 +35,21 @@ const factorial = n => {
         count.push(i)
         }
     }
-    console.log(count)
     return count.reduce((a,b)=> a*b,1)
 }
 
 console.log(factorial(4))
 // Codewars Solution 
 
+const factorial = n => n ? factorial(n - 1) * n : 1;
+
+function factorial(n){
+    let answer = 1;
+    
+    while (n > 0) {
+      answer *= n;
+      n--;
+    }
+    
+    return answer;
+  }
