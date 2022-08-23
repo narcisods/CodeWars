@@ -33,4 +33,4 @@ function getEvenNumbers(numbersArray) {
 }
 // Codewars Solution 
 
-const getEvenNumbers = numbersArray => numbersArray.filter(num => num % 2 == 0);
+// const getEvenNumbers = numbersArray => numbersArray.filter(num => num % 2 == 0)
