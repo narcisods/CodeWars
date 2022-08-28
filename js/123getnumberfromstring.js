@@ -19,17 +19,21 @@ console.log('Codewars test')
     // A string
 
 //RETURNS: How? print to console? Return?
-    // Return 
+    // Return a number
 
 //EXAMPLES: Examples of how the code should work?
-    //
+    // See above
 
 //PSEDUO CODE: Write pseduo code for everything
-    //
+    //  use the string method replace()
 
 
 // My Solution
-
+function getNumberFromString(s) {
+    return Number((s.replace(/\D/g,'')))
+    
+  }
+  
 
 // Codewars Solution 
 
