@@ -37,3 +37,6 @@ function getNumberFromString(s) {
 
 // Codewars Solution 
 
+// function getNumberFromString(s) {
+//     return +s.replace(/\D/g, "");
+//   }
