@@ -16,27 +16,27 @@ console.log('Codewars test')
 
 //PREP
 //PARAMETER: What can you take in?
-    // A string
+// A string
 
 //RETURNS: How? print to console? Return?
-    // Return a number
+// Return a number
 
 //EXAMPLES: Examples of how the code should work?
-    // See above
+// See above
 
 //PSEDUO CODE: Write pseduo code for everything
-    //  use the string method replace()
+//  use the string method replace()
 
 
 // My Solution
 function getNumberFromString(s) {
-    return Number((s.replace(/\D/g,'')))
-    
-  }
-  
+    return Number((s.replace(/\D/g, '')))
+
+}
+
 
 // Codewars Solution 
 
 // function getNumberFromString(s) {
 //     return +s.replace(/\D/g, "");
-//   }
+//   } 
