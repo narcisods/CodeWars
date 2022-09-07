@@ -50,7 +50,7 @@ function countWords(str) {
     let arr 
     str = str.trim().replace('\ufeff', ' ')
     arr = str.split(' ')
-    arr = arr.filter(el => el !== '')
+    arr = arr.filter(element => element !== '')
     return arr.length
   }
 
