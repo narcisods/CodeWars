@@ -27,5 +27,5 @@ console.log('Codewars test')
 // My Solution
 
 
-// Codewars Solution 
+// Codewars Solution  
 
