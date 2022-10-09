@@ -50,4 +50,4 @@ const splitInParts = (str,lengthNumber) => {
 //       parts.push(array.splice(0,partLength).join(''));
 //     }
 //     return parts.join(' ');
-//   }
+//   }  
