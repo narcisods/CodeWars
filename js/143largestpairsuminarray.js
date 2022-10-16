@@ -35,5 +35,10 @@ const largestPairSum = (arrNumbers) => {
 
 // Codewars Solution
 
+// function largestPairSum(numbers){
+//     numbers.sort(function(a, b){ return b - a });
+//     return numbers[0] + numbers[1];
+//   }
+
 console.log(largestPairSum([10, 14, 2, 23, 19]), 42);
 console.log(largestPairSum([99, 2, 2, 23, 19]), 122);
