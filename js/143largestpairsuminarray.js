@@ -41,4 +41,3 @@ const largestPairSum = (arrNumbers) => {
 //   }
 
 console.log(largestPairSum([10, 14, 2, 23, 19]), 42);
-console.log(largestPairSum([99, 2, 2, 23, 19]), 122);
