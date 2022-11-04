@@ -74,8 +74,6 @@ const stockList = (dataArray, requestArray) => {
 		.join(' - ');
 };
 
-// Codewars Solution
-
 // Test cases
 console.log(
 	stockList(
