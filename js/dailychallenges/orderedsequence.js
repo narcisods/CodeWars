@@ -47,4 +47,3 @@ fetch(pokemonAPI)
 	.then((data) => {
 		console.log(data);
 	});
-// test
