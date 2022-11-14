@@ -18,12 +18,42 @@ c.next = d;
 
 // A -> B -> C -> D -> Null
 
-const printLinkedList = (head) => {
-	let current = head;
-	while (current !== null) {
-		console.log(current.val);
-		current = current.next;
-	}
+// const printLinkedList = (head) => {
+// 	let current = head;
+// 	while (current !== null) {
+// 		console.log(current.val);
+// 		current = current.next;
+// 	}
+// };
+
+// const printLinkedList = (head) => {
+// 	if (head === null) return;
+// 	console.log(head.val);
+// 	printLinkedList(head.next);
+// };
+// printLinkedList(a);
+
+// const linkedListValues = (head) => {
+// 	const results = [];
+// 	let current = head;
+// 	while (current !== null) {
+// 		results.push(current.val);
+// 		current = current.next;
+// 	}
+// 	return results;
+// };
+
+const linkedListValues = (head) => {
+	const values = [];
+	getsVal(head, values);
+	return values;
 };
 
-printLinkedList(a);
+const getsVal = (head, values) => {
+	if (head === null) return;
+	values.push(head.val);
+	getsVal(head.next, values);
+};
+console.log(linkedListValues(a));
+
+//Sum List
