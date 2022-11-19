@@ -378,4 +378,4 @@ const howHigh = (node) => {
 	return 1 + Math.max(howHigh(node.left), howHigh(node.right));
 };
 
-console.log(howHigh(a)); // -> 2
+console.log(howHigh(a)); //  2
