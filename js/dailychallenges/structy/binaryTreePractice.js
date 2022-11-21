@@ -352,30 +352,30 @@ console.log('Node Class enabled');
 
 // console.log(treeValueCount(a, 6)); // -> 3
 
-const a = new Node('a');
-const b = new Node('b');
-const c = new Node('c');
-const d = new Node('d');
-const e = new Node('e');
-const f = new Node('f');
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// const d = new Node('d');
+// const e = new Node('e');
+// const f = new Node('f');
 
-a.left = b;
-a.right = c;
-b.left = d;
-b.right = e;
-c.right = f;
+// a.left = b;
+// a.right = c;
+// b.left = d;
+// b.right = e;
+// c.right = f;
 
-//      a
-//    /   \
-//   b     c
-//  / \     \
-// d   e     f
+// //      a
+// //    /   \
+// //   b     c
+// //  / \     \
+// // d   e     f
 
-const howHigh = (node) => {
-	if (node === null) return -1;
-	if (node === null) return 1;
+// const howHigh = (node) => {
+// 	if (node === null) return -1;
+// 	if (node === null) return 1;
 
-	return 1 + Math.max(howHigh(node.left), howHigh(node.right));
-};
+// 	return 1 + Math.max(howHigh(node.left), howHigh(node.right));
+// };
 
-console.log(howHigh(a)); // -> 2
+// console.log(howHigh(a)); // -> 2
