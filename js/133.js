@@ -1,6 +1,6 @@
 console.log('Codewars test')
 // Date
-asdf
+
 // ? Kyu
 // Title
 // Link
