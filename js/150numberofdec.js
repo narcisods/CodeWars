@@ -28,8 +28,6 @@ function digits(n) {
 	return n.toString().length;
 }
 
-// Codewars Solution
-
 // function digits(n) {
 //     return n.toString().length;
 //   }
