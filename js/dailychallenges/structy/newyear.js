@@ -90,3 +90,12 @@ const hashme = (thing) => {
 
 console.log(hashme(str));
 console.log(hashme(arr));
+
+// “Write a function to return an n element in Fibonacci sequence” is one of the most common questions you can hear during the coding challenge interview part. In this blogpost I’m going to walk through the two of the most typical solutions for this problem and also cover a dreadful (for most of novice developers) topic of time complexity.
+
+const fibonacci = (n) => {
+	if (n < 2) {
+		return n;
+	}
+	return fibonacci(n - 1) + fibonacci(n - 2);
+};
