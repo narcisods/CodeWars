@@ -45,27 +45,50 @@ const partlist = (arr) => {
 // 		.slice(1);
 // }
 
-console.log(
-	partlist(
-		['az', 'toto', 'picaro', 'zone', 'kiwi'],
-		[
-			['az', 'toto picaro zone kiwi'],
-			['az toto', 'picaro zone kiwi'],
-			['az toto picaro', 'zone kiwi'],
-			['az toto picaro zone', 'kiwi'],
-		]
-	)
-);
+// console.log(
+// 	partlist(
+// 		['az', 'toto', 'picaro', 'zone', 'kiwi'],
+// 		[
+// 			['az', 'toto picaro zone kiwi'],
+// 			['az toto', 'picaro zone kiwi'],
+// 			['az toto picaro', 'zone kiwi'],
+// 			['az toto picaro zone', 'kiwi'],
+// 		]
+// 	)
+// );
 
-[
-	[['I', "wish I hadn't come"]],
-	[['I wish', "I hadn't come"]],
-	[['I wish I', "hadn't come"]],
-	[["I wish I hadn't", 'come']],
-],
-	[
-		['I', "wish I hadn't come"],
-		['I wish', "I hadn't come"],
-		['I wish I', "hadn't come"],
-		["I wish I hadn't", 'come'],
-	];
+// [
+// 	[['I', "wish I hadn't come"]],
+// 	[['I wish', "I hadn't come"]],
+// 	[['I wish I', "hadn't come"]],
+// 	[["I wish I hadn't", 'come']],
+// ],
+// 	[
+// 		['I', "wish I hadn't come"],
+// 		['I wish', "I hadn't come"],
+// 		['I wish I', "hadn't come"],
+// 		["I wish I hadn't", 'come'],
+// 	];
+
+const events = [
+	{ title: 'In The Zone', game: 'Warzone' },
+	{ title: 'Springtown Slam', game: 'Super Smash Bros' },
+	{ title: 'Guild Watch', game: 'Overwatch' },
+];
+
+const addGameType = (events) => {
+	const gameTypes = {
+		'In The Zone': 'In Person',
+		'Springtown Slam': 'In Person',
+		'Guild Watch': 'Online',
+	};
+	events.forEach((event) => {
+		event.gameType = gameTypes[event.title];
+	});
+};
+addGameType(events);
+console.log(events);
+
+events.pop();
+
+console.log(events);
