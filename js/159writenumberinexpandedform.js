@@ -52,3 +52,12 @@ console.log(expandedForm(42), '-> 40 + 2'); // Should return '40 + 2'
 console.log(expandedForm(70304), '-> 70000 + 300 + 4'); // Should return '70000 + 300 + 4'
 
 // Codewars Solution
+// const expandedForm = (n) =>
+// 	n
+// 		.toString()
+// 		.split('')
+// 		.reverse()
+// 		.map((a, i) => a * Math.pow(10, i))
+// 		.filter((a) => a > 0)
+// 		.reverse()
+// 		.join(' + ');
