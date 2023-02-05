@@ -75,3 +75,22 @@ const revrot = (str, sz) => {
 console.log(revrot('733049910872815764', 5)); //"234561356789"
 
 // Codewars Solution
+
+//Convert Data to Javascript
+const data = [
+	{ name: 'Necklace', created_at: '2019-03-01' },
+	{ name: 'Bracelet', created_at: '2019-03-05' },
+	{ name: 'Dog Chain', created_at: '2020-05-27' },
+];
+
+//Filters Items that were created in March
+function filteredDataMarch(data) {
+	return data.filter(function (item) {
+		return item.created_at.substring(5, 7) === '03';
+	});
+}
+
+//Creates array with filtered items - In variable itemsCreatedMarch
+const itemsCreatedMarch = filteredDataMarch(data);
+
+console.log(itemsCreatedMarch);
