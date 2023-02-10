@@ -167,3 +167,15 @@ var pivotIndex = function (nums) {
 console.log(pivotIndex([1, 7, 3, 6, 5, 6]));
 console.log(pivotIndex([1, 2, 3]));
 console.log(pivotIndex([2, 1, -1]));
+
+function findMultiples(integer, limit) {
+	let results = [];
+	let i = integer;
+	while (i <= limit) {
+		results.push(i);
+		i = i + integer;
+	}
+	return results;
+}
+console.log((findMultiples(5, 25), [5, 10, 15, 20, 25]));
+//
