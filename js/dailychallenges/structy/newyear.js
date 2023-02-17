@@ -119,64 +119,272 @@
 // a.right = c;
 // b.left = d;
 // b.right = e;
-// c.right = f;
-// const treeSum = (root) => {
-// 	if (root === null) return 0;
-// 	let stack = [root];
-// 	let result = 0;
-// 	while (stack.length > 0) {
-// 		let current = stack.pop();
-// 		result += current.val;
+// // c.right = f;
+// // const treeSum = (root) => {
+// // 	if (root === null) return 0;
+// // 	let stack = [root];
+// // 	let result = 0;
+// // 	while (stack.length > 0) {
+// // 		let current = stack.pop();
+// // 		result += current.val;
 
-// 		if (current.left) stack.push(current.left);
-// 		if (current.right) stack.push(current.right);
+// // 		if (current.left) stack.push(current.left);
+// // 		if (current.right) stack.push(current.right);
+// // 	}
+// // 	return result;
+// // };
+
+// // console.log(treeSum(a));
+
+// var pivotIndex = function (nums) {
+// 	let frontPointer = 0;
+// 	let backPointer = nums.length;
+// 	let frontSum = nums[0]; //1
+// 	let backSum = nums[nums.length - 1]; //6
+// 	while (frontSum !== backSum) {
+// 		if (frontSum > backSum) {
+// 			backPointer--;
+// 			backSum += nums[backPointer];
+// 		} else if (frontSum < backSum) {
+// 			frontPointer++;
+// 			frontSum += nums[frontPointer];
+// 		} else {
+// 			break;
+// 		}
 // 	}
-// 	return result;
+
+// 	if (frontPointer === 0) {
+// 		return 0;
+// 	} else if (backPointer - 1 !== frontPointer) {
+// 		return -1;
+// 	} else {
+// 		return frontPointer++;
+// 	}
 // };
 
-// console.log(treeSum(a));
+// // Input: nums = [1, 7, 3, 6, 5, 6];
+// // Output: 3;
+// console.log(pivotIndex([1, 7, 3, 6, 5, 6]));
+// console.log(pivotIndex([1, 2, 3]));
+// console.log(pivotIndex([2, 1, -1]));
 
-var pivotIndex = function (nums) {
-	let frontPointer = 0;
-	let backPointer = nums.length;
-	let frontSum = nums[0]; //1
-	let backSum = nums[nums.length - 1]; //6
-	while (frontSum !== backSum) {
-		if (frontSum > backSum) {
-			backPointer--;
-			backSum += nums[backPointer];
-		} else if (frontSum < backSum) {
-			frontPointer++;
-			frontSum += nums[frontPointer];
-		} else {
-			break;
-		}
+// function findMultiples(integer, limit) {
+// 	let results = [];
+// 	let i = integer;
+// 	while (i <= limit) {
+// 		results.push(i);
+// 		i = i + integer;
+// 	}
+// 	return results;
+// }
+// console.log((findMultiples(5, 25), [5, 10, 15, 20, 25]));
+// //
+// // test
+
+class Node {
+	constructor(val) {
+		this.val = val;
+		this.next = null;
 	}
-
-	if (frontPointer === 0) {
-		return 0;
-	} else if (backPointer - 1 !== frontPointer) {
-		return -1;
-	} else {
-		return frontPointer++;
-	}
-};
-
-// Input: nums = [1, 7, 3, 6, 5, 6];
-// Output: 3;
-console.log(pivotIndex([1, 7, 3, 6, 5, 6]));
-console.log(pivotIndex([1, 2, 3]));
-console.log(pivotIndex([2, 1, -1]));
-
-function findMultiples(integer, limit) {
-	let results = [];
-	let i = integer;
-	while (i <= limit) {
-		results.push(i);
-		i = i + integer;
-	}
-	return results;
 }
-console.log((findMultiples(5, 25), [5, 10, 15, 20, 25]));
-//
-// test
+
+// linked list values
+// Write a function, linkedListValues, that takes in the head of a linked list as an argument. The function should return an array containing all values of the nodes in the linked list.
+
+// Hey. This is our first linked list problem, so you should be liberal with watching the Approach and Walkthrough. Be productive, not stubborn. -AZ
+
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// const d = new Node('d');
+
+// a.next = b;
+// b.next = c;
+// c.next = d;
+
+// // a -> b -> c -> d
+
+// // const linkedListValues = (head) => {
+// // 	let current = head;
+// // 	let results = [];
+// // 	while (current !== null) {
+// // 		results.push(current.val);
+// // 		current = current.next;
+// // 	}
+// // 	return results;
+// // };
+
+// // Recursive
+
+// const linkedListValues = (head) => {
+// 	let values = [];
+// 	fillValues(head, values);
+// 	return values;
+// };
+// const fillValues = (head, values) => {
+// 	if (head === null) return;
+// 	values.push(head.val);
+// 	fillValues(head.next, values);
+// };
+
+// console.log(linkedListValues(a)); // -> [ 'a', 'b', 'c', 'd' ]
+
+// const a = new Node(2);
+// const b = new Node(8);
+// const c = new Node(3);
+// const d = new Node(-1);
+// const e = new Node(7);
+
+// a.next = b;
+// b.next = c;
+// c.next = d;
+// d.next = e;
+
+// // 2 -> 8 -> 3 -> -1 -> 7
+
+// // const sumList = (head) => {
+// // 	let sum = 0;
+// // 	let current = head;
+// // 	while (current !== null) {
+// // 		sum += current.val;
+// // 		current = current.next;
+// // 	}
+// // 	return sum;
+// // };
+
+// const sumList = (head) => {
+// 	if (head === null) return 0;
+// 	return head.val + sumList(head.next);
+// };
+
+// console.log(sumList(a)); // 19
+
+// // Write a function, linkedListFind, that takes in the head of a linked list and a target value. The function should return a boolean indicating whether or not the linked list contains the target.
+
+// // test_00:
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// const d = new Node('d');
+
+// a.next = b;
+// b.next = c;
+// c.next = d;
+
+// // a -> b -> c -> d
+
+// // const linkedListFind = (head, target) => {
+// // 	let cur = head;
+// // 	while (cur !== null) {
+// // 		if (cur.val === target) {
+// // 			return true;
+// // 		}
+// // 		cur = cur.next;
+// // 	}
+// // 	return false;
+// // };
+
+// const linkedListFind = (head, target) => {
+// 	if (head === null) return false;
+// 	if (head.val === target) return true;
+
+// 	return linkedListFind(head.next, target);
+// };
+
+// // console.log(linkedListFind(a, 'c')); // true
+
+// // Write a function, getNodeValue, that takes in the head of a linked list and an index. The function should return the value of the linked list at the specified index.
+
+// // If there is no node at the given index, then return null.
+
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// const d = new Node('d');
+
+// a.next = b;
+// b.next = c;
+// c.next = d;
+
+// // a -> b -> c -> d
+
+// // const getNodeValue = (head, index) => {
+// // 	let current = head;
+// // 	let count = 0;
+// // 	while (current !== null) {
+// // 		if (count === index) {
+// // 			return current.val;
+// // 		}
+// // 		count++;
+// // 		current = current.next;
+// // 	}
+// // 	return null;
+// // };
+
+// const getNodeValue = (head, index) => {
+// 	if (head === null) return null;
+// 	if (index === 0) return head.val;
+
+// 	index--;
+// 	return getNodeValue(head.next, index);
+// };
+// console.log(getNodeValue(a, 2)); // 'c'
+
+// Write a function, reverseList, that takes in the head of a linked list as an argument. The function should reverse the order of the nodes in the linked list in-place and return the new head of the reversed linked list.
+
+// test_00:
+const a = new Node('a');
+const b = new Node('b');
+const c = new Node('c');
+const d = new Node('d');
+const e = new Node('e');
+const f = new Node('f');
+
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = e;
+e.next = f;
+
+// a -> b -> c -> d -> e -> f
+
+// const reverseList = (head) => {
+// 	let current = head;
+// 	let prev = null;
+
+// 	while (current !== null) {
+// 		let next = current.next;
+// 		current.next = prev;
+// 		prev = current;
+// 		current = next;
+// 	}
+// 	return prev;
+// };
+
+//recursive
+const reverseList = (head, prev = null) => {
+	if (head === null) return prev;
+	const next = head.next;
+	head.next = prev;
+	return reverseList(next, head);
+};
+console.log(reverseList(a)); // f -> e -> d -> c -> b -> a
+
+var middleNode = function (head) {
+	let current = head;
+	let count = 0;
+	while (current !== null) {
+		count++;
+		current = current.next;
+	}
+	let target = Math.ceil(count / 2);
+	current = head;
+	while (current !== null) {
+		if (count === target) {
+			return current;
+		}
+		count--;
+		current = current.next;
+	}
+	return null;
+};
