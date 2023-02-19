@@ -11,4 +11,3 @@ const fizzBuzz = (num) => {
 		}
 	}
 };
-//testing
