@@ -55,7 +55,7 @@ function sumPairs(numbers, sum) {
 		}
 		pairs.set(numbers[i], i);
 	}
-	return null;
+	return undefined;
 }
 // Test Cases
 console.log(sumPairs([4, 3, 2, 3, 4], 6), [4, 2]);
