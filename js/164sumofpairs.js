@@ -60,3 +60,4 @@ function sumPairs(numbers, sum) {
 // Test Cases
 console.log(sumPairs([4, 3, 2, 3, 4], 6), [4, 2]);
 // Codewars Solution
+//Test
