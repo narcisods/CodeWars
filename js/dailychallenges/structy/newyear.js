@@ -181,12 +181,12 @@
 // //
 // // test
 
-class Node {
-	constructor(val) {
-		this.val = val;
-		this.next = null;
-	}
-}
+// class Node {
+// 	constructor(val) {
+// 		this.val = val;
+// 		this.next = null;
+// 	}
+// }
 
 // linked list values
 // Write a function, linkedListValues, that takes in the head of a linked list as an argument. The function should return an array containing all values of the nodes in the linked list.
@@ -333,18 +333,18 @@ class Node {
 // Write a function, reverseList, that takes in the head of a linked list as an argument. The function should reverse the order of the nodes in the linked list in-place and return the new head of the reversed linked list.
 
 // test_00:
-const a = new Node('a');
-const b = new Node('b');
-const c = new Node('c');
-const d = new Node('d');
-const e = new Node('e');
-const f = new Node('f');
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// const d = new Node('d');
+// const e = new Node('e');
+// const f = new Node('f');
 
-a.next = b;
-b.next = c;
-c.next = d;
-d.next = e;
-e.next = f;
+// a.next = b;
+// b.next = c;
+// c.next = d;
+// d.next = e;
+// e.next = f;
 
 // a -> b -> c -> d -> e -> f
 
@@ -362,29 +362,417 @@ e.next = f;
 // };
 
 //recursive
-const reverseList = (head, prev = null) => {
-	if (head === null) return prev;
-	const next = head.next;
-	head.next = prev;
-	return reverseList(next, head);
-};
-console.log(reverseList(a)); // f -> e -> d -> c -> b -> a
+// const reverseList = (head, prev = null) => {
+// 	if (head === null) return prev;
+// 	const next = head.next;
+// 	head.next = prev;
+// 	return reverseList(next, head);
+// };
+// console.log(reverseList(a)); // f -> e -> d -> c -> b -> a
 
-var middleNode = function (head) {
-	let current = head;
-	let count = 0;
-	while (current !== null) {
-		count++;
-		current = current.next;
+// var middleNode = function (head) {
+// 	let current = head;
+// 	let count = 0;
+// 	while (current !== null) {
+// 		count++;
+// 		current = current.next;
+// 	}
+// 	let target = Math.ceil(count / 2);
+// 	current = head;
+// 	while (current !== null) {
+// 		if (count === target) {
+// 			return current;
+// 		}
+// 		count--;
+// 		current = current.next;
+// 	}
+// 	return null;
+// };
+
+//Hashmap practice
+
+// const array = [2, 3, 4, 1, 3, 4, 42, 3, 4, 1, 2, 3, 3, 3, 3, 4, 1, 12, 3];
+
+// const hash = (arr) => {
+// 	const count = {};
+// 	for (let char of arr) {
+// 		if (!(char in count)) {
+// 			count[char] = 0;
+// 		}
+// 		count[char]++;
+// 	}
+// 	return count;
+// };
+
+// console.log(hash(array));
+
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// const d = new Node('d');
+// const e = new Node('e');
+// const f = new Node('f');
+
+// a.next = b;
+// b.next = c;
+// c.next = d;
+// d.next = e;
+// e.next = f;
+
+// // const reverseList = (head) => {
+// // 	let current = head;
+// // 	let prev = null;
+// // 	while (current !== null) {
+// // 		let next = current.next;
+// // 		current.next = prev;
+// // 		prev = current;
+// // 		current = next;
+// // 	}
+// // 	return prev;
+// // };
+
+// const reverseList = (head, prev = null) => {
+// 	if (head === null) return prev;
+// 	const next = head.next;
+// 	head.next = prev;
+// 	return reverseList(next, head);
+// };
+
+// // a -> b -> c -> d -> e -> f
+
+// // console.log(reverseList(a)); // f -> e -> d -> c -> b -> a
+
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// a.next = b;
+// b.next = c;
+// // a -> b -> c
+
+// const x = new Node('x');
+// const y = new Node('y');
+// const z = new Node('z');
+// x.next = y;
+// y.next = z;
+// // x -> y -> z
+
+// const zipperLists = (head1, head2) => {
+// 	let current1 = head1.next;
+// 	let current2 = head2;
+// 	let tail = head1;
+// 	let count = 0;
+// 	while (current1 !== null && current2 !== null) {
+// 		if (count % 2 === 0) {
+// 			tail.next = current2;
+// 			current2 = current2.next;
+// 		}
+// 		if (count % 2 !== 0) {
+// 			tail.next = current1;
+// 			current1 = current1.next;
+// 		}
+// 		count++;
+// 		tail = tail.next;
+// 	}
+// 	if (current1 === null) tail.next = current2;
+
+// 	if (current2 === null) tail.next = current1;
+
+// 	return head1;
+// };
+
+// console.log(zipperLists(a, x));
+// // a -> x -> b -> y -> c -> z
+
+// merge lists
+// Write a function, mergeLists, that takes in the head of two sorted linked lists as arguments. The function should merge the two lists together into single sorted linked list. The function should return the head of the merged linked list.
+
+// Do this in-place, by mutating the original Nodes.
+
+// You may assume that both input lists are non-empty and contain increasing sorted numbers.
+
+// // test_00:
+// const a = new Node(5);
+// const b = new Node(7);
+// const c = new Node(10);
+// const d = new Node(12);
+// const e = new Node(20);
+// const f = new Node(28);
+// a.next = b;
+// b.next = c;
+// c.next = d;
+// d.next = e;
+// e.next = f;
+// // 5 -> 7 -> 10 -> 12 -> 20 -> 28
+
+// const q = new Node(6);
+// const r = new Node(8);
+// const s = new Node(9);
+// const t = new Node(25);
+// q.next = r;
+// r.next = s;
+// s.next = t;
+// // 6 -> 8 -> 9 -> 25
+
+// // const mergeLists = (head1, head2) => {
+// // 	let current1 = head1;
+// // 	let current2 = head2;
+// // 	const dummy = new Node(null);
+// // 	let tail = dummy;
+// // 	while (current1 !== null && current2 !== null) {
+// // 		if (current1.val < current2.val) {
+// // 			tail.next = current1;
+// // 			current1 = current1.next;
+// // 		} else {
+// // 			tail.next = current2;
+// // 			current2 = current2.next;
+// // 		}
+// // 		tail = tail.next;
+// // 	}
+
+// // 	if (current1 === null) tail.next = current2;
+// // 	if (current2 === null) tail.next = current1;
+
+// // 	return dummy.next;
+// // };
+// const mergeLists = (head1, head2) => {
+// 	if (head1 === null && head2 === null) return null;
+// 	if (head1 === null) return head2;
+// 	if (head2 === null) return head1;
+
+// 	if (head1.val < head2.val) {
+// 		const next1 = head1.next;
+// 		head1.next = mergeLists(next1, head2);
+// 		return head1;
+// 	} else {
+// 		const next2 = head2.next;
+// 		head2.next = mergeLists(head1, next2);
+// 		return head2;
+// 	}
+// };
+// console.log(mergeLists(a, q));
+// // 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 12 -> 20 -> 25 -> 28
+// test_01:
+// const a = new Node(5);
+// const b = new Node(7);
+// const c = new Node(10);
+// const d = new Node(12);
+// const e = new Node(20);
+// const f = new Node(28);
+// a.next = b;
+// b.next = c;
+// c.next = d;
+// d.next = e;
+// e.next = f;
+// // 5 -> 7 -> 10 -> 12 -> 20 -> 28
+
+// const q = new Node(1);
+// const r = new Node(8);
+// const s = new Node(9);
+// // const t = new Node(10);
+// // q.next = r;
+// // r.next = s;
+// // s.next = t;
+// // // 1 -> 8 -> 9 -> 10
+
+// // mergeLists(a, q);
+// // // 1 -> 5 -> 7 -> 8 -> 9 -> 10 -> 10 -> 12 -> 20 -> 28
+
+// const a = new Node(7);
+// const b = new Node(7);
+// const c = new Node(7);
+
+// a.next = b;
+// b.next = c;
+
+// // 7 -> 7 -> 7
+
+// // const isUnivalueList = (head) => {
+// // 	let current = head;
+
+// // 	while (current !== null) {
+// // 		if (current.val !== head.val) {
+// // 			return false;
+// // 		}
+// // 		current = current.next;
+// // 	}
+// // 	return true;
+// // };
+
+// // console.log(isUnivalueList(a)); // true
+
+// const a = new Node(5);
+// const b = new Node(5);
+// const c = new Node(7);
+// const d = new Node(7);
+// const e = new Node(7);
+// const f = new Node(6);
+
+// a.next = b;
+// b.next = c;
+// c.next = d;
+// d.next = e;
+// e.next = f;
+
+// const longestStreak = (head) => {
+// 	let current = head;
+// 	let currentStreak = 0;
+// 	let maxStreak = 0;
+// 	let prevVal = null;
+// 	while (current !== null) {
+// 		if (prevVal === current.val) {
+// 			currentStreak++;
+// 		} else {
+// 			currentStreak = 1;
+// 		}
+// 		if (currentStreak > maxStreak) maxStreak = currentStreak;
+// 		prevVal = current.val;
+// 		current = current.next;
+// 	}
+// 	return maxStreak;
+// };
+// // 5 -> 5 -> 7 -> 7 -> 7 -> 6
+
+// console.log(longestStreak(a)); // 3
+
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// const d = new Node('d');
+// const e = new Node('e');
+// const f = new Node('f');
+
+// a.next = b;
+// b.next = c;
+// c.next = d;
+// d.next = e;
+// e.next = f;
+
+// // a -> b -> c -> d -> e -> f
+// const removeNode = (head, target) => {
+// 	let current = head;
+// 	let dummyHead = new Node(null);
+// 	let prev = dummyHead;
+
+// 	while (current !== null) {
+// 		if (current.val === target) {
+// 			let next = current.next;
+// 			current.next = null;
+// 			prev.next = next;
+// 			break
+// 		}
+// 		prev = current;
+// 		current = current.next;
+// 	}
+// 	return head;
+// };
+
+// removeNode(a, 'c');
+// // // a -> b -> d -> e -> f
+
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// const d = new Node('d');
+
+// a.next = b;
+// b.next = c;
+// c.next = d;
+
+// // a -> b -> c -> d
+
+// const insertNode = (head, value, index) => {
+// 	if (index === 0) {
+// 		let newNode = new Node(value);
+// 		newNode.next = head;
+// 		return newNode;
+// 	}
+// 	let current = head;
+// 	let count = 0;
+// 	while (current !== null) {
+// 		if (count === index -1) {
+// 			let next = current.next;
+// 			current.next = new Node(value);
+// 			current.next.next = next;
+// 			break;
+// 		}
+
+// 		count++;
+// 		current = current.next;
+// 	}
+// 	return head;
+// };
+
+// console.log(insertNode(a, 'x', 2));
+// // a -> b -> x -> c -> d
+
+// Write a function, createLinkedList, that takes in an array of values as an argument. The function should create a linked list containing each element of the array as the values of the nodes. The function should return the head of the linked list.
+
+// test_00:
+
+class Node {
+	constructor(val) {
+		this.val = val;
+		this.next = null;
 	}
-	let target = Math.ceil(count / 2);
-	current = head;
-	while (current !== null) {
-		if (count === target) {
-			return current;
-		}
-		count--;
-		current = current.next;
-	}
-	return null;
+}
+
+// const createLinkedList = (values) => {
+// 	let dummyHead = new Node(null);
+// 	let tail = dummyHead;
+// 	for (let val of values) {
+// 		tail.next = new Node(val);
+// 		tail = tail.next;
+// 	}
+
+// 	return dummyHead.next;
+// };
+
+// console.log(createLinkedList(['h', 'e', 'y']));
+// // h -> e -> y
+
+// addList
+
+// test_00:
+//   621
+// + 354
+// -----
+//   975
+
+//  7541
+// +  32
+// -----
+//  7573
+//   89
+// + 47
+// ----
+//  136
+
+const a1 = new Node(9);
+const a2 = new Node(8);
+a1.next = a2;
+// 9 -> 8
+
+const b1 = new Node(7);
+const b2 = new Node(4);
+b1.next = b2;
+// 7 -> 4
+
+const addLists = (head1, head2, carry = 0) => {
+	if (head1 === null && head2 === null && carry === 0) return null;
+
+	const val1 = head1 === null ? 0 : head1.val;
+	const val2 = head2 === null ? 0 : head2.val;
+
+	const sum = val1 + val2 + carry;
+	const nextCarry = sum > 9 ? 1 : 0;
+	const digit = sum % 10;
+	const resultsNode = new Node(digit);
+
+	const next1 = head1 === null ? null : head1.next;
+	const next2 = head2 === null ? null : head2.next;
+	resultsNode.next = addLists(next1, next2, nextCarry);
+	return resultsNode;
 };
+
+console.log(addLists(a1, b1));
+// 5 -> 7 -> 9
