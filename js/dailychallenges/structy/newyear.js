@@ -705,16 +705,16 @@
 // console.log(insertNode(a, 'x', 2));
 // // a -> b -> x -> c -> d
 
-// Write a function, createLinkedList, that takes in an array of values as an argument. The function should create a linked list containing each element of the array as the values of the nodes. The function should return the head of the linked list.
+// // Write a function, createLinkedList, that takes in an array of values as an argument. The function should create a linked list containing each element of the array as the values of the nodes. The function should return the head of the linked list.
 
-// test_00:
+// // test_00:
 
-class Node {
-	constructor(val) {
-		this.val = val;
-		this.next = null;
-	}
-}
+// class Node {
+// 	constructor(val) {
+// 		this.val = val;
+// 		this.next = null;
+// 	}
+// }
 
 // const createLinkedList = (values) => {
 // 	let dummyHead = new Node(null);
@@ -747,32 +747,81 @@ class Node {
 // ----
 //  136
 
-const a1 = new Node(9);
-const a2 = new Node(8);
-a1.next = a2;
-// 9 -> 8
+// const a1 = new Node(9);
+// const a2 = new Node(8);
+// a1.next = a2;
+// // 9 -> 8
 
-const b1 = new Node(7);
-const b2 = new Node(4);
-b1.next = b2;
-// 7 -> 4
+// const b1 = new Node(7);
+// const b2 = new Node(4);
+// b1.next = b2;
+// // 7 -> 4
 
-const addLists = (head1, head2, carry = 0) => {
-	if (head1 === null && head2 === null && carry === 0) return null;
+// const addLists = (head1, head2, carry = 0) => {
+// 	if (head1 === null && head2 === null && carry === 0) return null;
 
-	const val1 = head1 === null ? 0 : head1.val;
-	const val2 = head2 === null ? 0 : head2.val;
+// 	const val1 = head1 === null ? 0 : head1.val;
+// 	const val2 = head2 === null ? 0 : head2.val;
 
-	const sum = val1 + val2 + carry;
-	const nextCarry = sum > 9 ? 1 : 0;
-	const digit = sum % 10;
-	const resultsNode = new Node(digit);
+// 	const sum = val1 + val2 + carry;
+// 	const nextCarry = sum > 9 ? 1 : 0;
+// 	const digit = sum % 10;
+// 	const resultsNode = new Node(digit);
 
-	const next1 = head1 === null ? null : head1.next;
-	const next2 = head2 === null ? null : head2.next;
-	resultsNode.next = addLists(next1, next2, nextCarry);
-	return resultsNode;
+// 	const next1 = head1 === null ? null : head1.next;
+// 	const next2 = head2 === null ? null : head2.next;
+// 	resultsNode.next = addLists(next1, next2, nextCarry);
+// 	return resultsNode;
+// };
+
+// console.log(addLists(a1, b1));
+// // 5 -> 7 -> 9
+
+class Node {
+	constructor(val) {
+		this.val = val;
+		this.left = null;
+		this.right = null;
+	}
+}
+
+const a = new Node('a');
+const b = new Node('b');
+const c = new Node('c');
+const d = new Node('d');
+const e = new Node('e');
+const f = new Node('f');
+
+a.left = b;
+a.right = c;
+b.left = d;
+b.right = e;
+c.right = f;
+
+//      a
+//    /   \
+//   b     c
+//  / \     \
+// d   e     f
+// const depthFirstValues = (root) => {
+// 	if (root === null) return []
+// 	const stack = [root];
+// 	const values = [];
+// 	while (stack.length > 0) {
+// 		const current = stack.pop();
+// 		values.push(current.val);
+
+// 		if (current.right) stack.push(current.right);
+// 		if (current.left) stack.push(current.left);
+// 	}
+// 	return values;
+// };
+
+const depthFirstValues = (root) => {
+	if (root === null) return [];
+	const leftVals = depthFirstValues(root.left);
+	const rightVals = depthFirstValues(root.right);
+	return [root.val, ...leftVals, ...rightVals];
 };
-
-console.log(addLists(a1, b1));
-// 5 -> 7 -> 9
+console.log(depthFirstValues(a));
+//    -> ['a', 'b', 'd', 'e', 'c', 'f']

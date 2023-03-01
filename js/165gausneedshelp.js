@@ -2,7 +2,7 @@ console.log('Codewars test');
 // 2/27
 
 // 7 Kyu
-// Title
+// Gauß needs help! (Sums of a lot of numbers)
 // https://www.codewars.com/kata/54df2067ecaa226eca000229/train/javascript
 
 //Details
