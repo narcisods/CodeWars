@@ -887,3 +887,15 @@ const maxPathSum = (root) => {
 
 console.log(maxPathSum(a)); // -> 18
 // Reverse Linked List
+
+const reverse = (root) => {
+	let current = root;
+	let prev = null;
+	while (current !== null) {
+		let next = current.next;
+		current.next = prev;
+		prev = current;
+		current = next;
+	}
+	return prev;
+};
