@@ -888,14 +888,27 @@ const maxPathSum = (root) => {
 console.log(maxPathSum(a)); // -> 18
 // Reverse Linked List
 
-const reverse = (root) => {
-	let current = root;
-	let prev = null;
-	while (current !== null) {
-		let next = current.next;
-		current.next = prev;
-		prev = current;
-		current = next;
+// const reverse = (root) => {
+// 	let current = root;
+// 	let prev = null;
+// 	while (current !== null) {
+// 		let next = current.next;
+// 		current.next = prev;
+// 		prev = current;
+// 		current = next;
+// 	}
+// 	return prev;
+// };
+
+const hashMap = (string) => {
+	let count = {};
+	for (const char of string) {
+		if (!(char in count)) {
+			count[char] = 0;
+		}
+		count[char]++;
 	}
-	return prev;
+	return count;
 };
+
+console.log(hashMap('testtest'));
