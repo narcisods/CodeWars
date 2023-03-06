@@ -911,4 +911,4 @@ const hashMap = (string) => {
 	return count;
 };
 
-console.log(hashMap('testtest'));
+console.log(hashMap('testtesttest'));
