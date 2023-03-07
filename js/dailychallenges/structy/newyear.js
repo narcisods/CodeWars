@@ -897,18 +897,18 @@ console.log(maxPathSum(a)); // -> 18
 // 		prev = current;
 // 		current = next;
 // 	}
-// 	return prev;
+// // 	return prev;
+// // };
+
+// const hashMap = (string) => {
+// 	let count = {};
+// 	for (const char of string) {
+// 		if (!(char in count)) {
+// 			count[char] = 0;
+// 		}
+// 		count[char]++;
+// 	}
+// 	return count;
 // };
 
-const hashMap = (string) => {
-	let count = {};
-	for (const char of string) {
-		if (!(char in count)) {
-			count[char] = 0;
-		}
-		count[char]++;
-	}
-	return count;
-};
-
-console.log(hashMap('testtesttest'));
+// console.log(hashMap('testtesttest'));
