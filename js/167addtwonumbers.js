@@ -63,27 +63,28 @@ while (current1 !== null || current2 !== null) {
 	}
 }
 
-// Creates new linked list
-let carry = 0;
-let result = null;
+// // Creates new linked list
+// let carry = 0;
+// let result = null;
 
-// Add digits from the stacks and any carry until both stacks are empty
-while (stack1.length > 0 || stack2.length > 0 || carry > 0) {
-	let sum = carry;
+// // Add digits from the stacks and any carry until both stacks are empty
+// while (stack1.length > 0 || stack2.length > 0 || carry > 0) {
+// 	let sum = carry;
 
-	if (stack1.length > 0) {
-		sum += stack1.pop();
-	}
+// 	if (stack1.length > 0) {
+// 		sum += stack1.pop();
+// 	}
 
-	if (stack2.length > 0) {
-		sum += stack2.pop();
-	}
+// 	if (stack2.length > 0) {
+// 		sum += stack2.pop();
+// 	}
 
-	const node = new ListNode(sum % 10);
-	node.next = result;
-	result = node;
+// 	const node = new ListNode(sum % 10);
+// 	node.next = result;
+// 	result = node;
 
-	carry = Math.floor(sum / 10);
-}
+// 	carry = Math.floor(sum / 10);
+// }
 
-return result;
+// return result;
+//
