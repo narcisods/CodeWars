@@ -30,12 +30,17 @@ console.log('Codewars test');
 // My Solution
 function sumCubes(n) {
 	let current = 0;
-	for (let i = 1; i < n; i++) {
-		current += Math.pow(3, i);
+	for (let i = 1; i <= n; i++) {
+		current += Math.pow(i, 3);
 	}
 	return current;
 }
-
 // Test Cases
-
+// function sumCubes(n){
+//     if (n == 1) {
+//       return n**3;
+//     } else {
+//       return n**3 + sumCubes(n - 1);
+//     }
+//   }
 // Codewars Solution
