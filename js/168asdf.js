@@ -36,6 +36,9 @@ function sumCubes(n) {
 	return current;
 }
 // Test Cases
+
+// Codewars Solution
+
 // function sumCubes(n){
 //     if (n == 1) {
 //       return n**3;
@@ -43,4 +46,3 @@ function sumCubes(n) {
 //       return n**3 + sumCubes(n - 1);
 //     }
 //   }
-// Codewars Solution
