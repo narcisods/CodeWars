@@ -35,7 +35,6 @@ function sumCubes(n) {
 	}
 	return current;
 }
-// Test Cases
 
 // Codewars Solution
 
