@@ -777,13 +777,13 @@
 // console.log(addLists(a1, b1));
 // // 5 -> 7 -> 9
 
-class Node {
-	constructor(val) {
-		this.val = val;
-		this.left = null;
-		this.right = null;
-	}
-}
+// class Node {
+// 	constructor(val) {
+// 		this.val = val;
+// 		this.left = null;
+// 		this.right = null;
+// 	}
+// }
 
 // const a = new Node('a');
 // const b = new Node('b');
@@ -858,12 +858,306 @@ class Node {
 //     return false
 //   };
 
-const a = new Node(3);
-const b = new Node(11);
-const c = new Node(4);
-const d = new Node(4);
-const e = new Node(-2);
-const f = new Node(1);
+// const a = new Node(3);
+// const b = new Node(11);
+// const c = new Node(4);
+// const d = new Node(4);
+// const e = new Node(-2);
+// const f = new Node(1);
+
+// a.left = b;
+// a.right = c;
+// b.left = d;
+// b.right = e;
+// c.right = f;
+
+// //       3
+// //    /    \
+// //   11     4
+// //  / \      \
+// // 4   -2     1
+
+// const maxPathSum = (root) => {
+// 	if (root === null) return -Infinity;
+// 	if (root.left === null && root.right === null) return root.val;
+// 	const maxChild = Math.max(maxPathSum(root.left), maxPathSum(root.right));
+
+// 	return root.val + maxChild;
+// };
+
+// console.log(maxPathSum(a)); // -> 18
+// // Reverse Linked List
+
+// const reverse = (root) => {
+// 	let current = root;
+// 	let prev = null;
+// // 	while (current !== null) {
+// // 		let next = current.next;
+// // 		current.next = prev;
+// // 		prev = current;
+// // 		current = next;
+// // 	}
+// // // 	return prev;
+// // // };
+
+// // const hashMap = (string) => {
+// // 	let count = {};
+// // 	for (const char of string) {
+// // 		if (!(char in count)) {
+// // 			count[char] = 0;
+// // 		}
+// // 		count[char]++;
+// // 	}
+// // 	return count;
+// // };
+
+// // console.log(hashMap('testtesttest'));
+
+// //Beiatrix BST
+
+// class Node {
+// 	constructor(value) {
+// 		this.value = value;
+// 		this.left = null;
+// 		this.right = null;
+// 	}
+// }
+
+// class BST {
+// 	constructor(value) {
+// 		this.root = new Node(value);
+// 		this.count = 1;
+// 	}
+
+// 	size() {
+// 		return this.count;
+// 	}
+// 	insert(value) {
+// 		this.count++;
+// 		let newNode = new Node(value);
+
+// 		const searchTree = (node) => {
+// 			// if value < node.value, go left
+// 			if (value < node.value) {
+// 				if (!node.left) {
+// 					node.left = newNode;
+// 				} else {
+// 					searchTree(node.left);
+// 				}
+// 			}
+// 			// if value > node.value, go right
+// 			else if (value > node.value) {
+// 				if (!node.right) {
+// 					node.right = newNode;
+// 				} else {
+// 					searchTree(node.right);
+// 				}
+// 			}
+// 		};
+// 		searchTree(this.root);
+// 	}
+// 	min() {
+// 		let currentNode = this.root;
+
+// 		while (currentNode.left) {
+// 			currentNode = currentNode.left;
+// 		}
+// 		return currentNode.value;
+// 	}
+// 	max() {
+// 		let currentNode = this.root;
+
+// 		while (currentNode.right) {
+// 			currentNode = currentNode.right;
+// 		}
+// 		return currentNode.value;
+// 	}
+// 	contains(value) {
+// 		let currentNode = this.root;
+// 		while (currentNode) {
+// 			if (value === currentNode.value) {
+// 				return true;
+// 			}
+// 			if (value < currentNode.value) {
+// 				currentNode = currentNode.left;
+// 			} else {
+// 				currentNode = currentNode.right;
+// 			}
+// 		}
+// 		return false;
+// 	}
+// 	//depth first search
+
+// 	// in-order
+// 	dfsInOrder() {
+// 		let result = [];
+
+// 		const traverse = (node) => {
+// 			// if left child exsist, go left again
+// 			if (node.left) traverse(node.left);
+// 			// capture root node value
+// 			result.push(node.value);
+// 			// if right child exists, go right again
+// 			if (node.right) traverse(node.right);
+// 		};
+
+// 		traverse(this.root);
+// 		return result;
+// 	}
+
+// 	//pre-order
+// 	dfsPreOrder() {
+// 		let result = [];
+
+// 		const traverse = (node) => {
+// 			// capture root node value
+// 			result.push(node.value);
+// 			// if left child exsist, go left again
+// 			if (node.left) traverse(node.left);
+// 			// if right child exists, go right again
+// 			if (node.right) traverse(node.right);
+// 		};
+// 		traverse(this.root);
+// 		return result;
+// 	}
+
+// 	//post-order
+// 	dfsPostOrder() {
+// 		let result = [];
+
+// 		const traverse = (node) => {
+// 			// if left child exsist, go left again
+// 			if (node.left) traverse(node.left);
+// 			// if right child exists, go right again
+// 			if (node.right) traverse(node.right);
+// 			// capture root node value
+// 			result.push(node.value);
+// 		};
+// 		traverse(this.root);
+// 		return result;
+// 	}
+
+// 	// breadth first search
+// 	bfs() {
+// 		let result = [];
+// 		let queue = [this.root];
+
+// 		while (queue.length > 0) {
+// 			let current = queue.shift();
+// 			result.push(current.value);
+// 			if (current.left) queue.push(current.left);
+// 			if (current.right) queue.push(current.right);
+// 		}
+
+// 		return result;
+// 	}
+// }
+
+// const bst = new BST(15);
+
+// bst.insert(3);
+// bst.insert(36);
+// bst.insert(2);
+// bst.insert(12);
+// bst.insert(28);
+// bst.insert(39);
+
+// console.log(bst);
+// console.log(bst.size());
+// console.log(bst.min());
+// console.log(bst.max());
+// console.log(bst.contains(9));
+// console.log(bst.dfsInOrder());
+// console.log(bst.dfsPreOrder());
+// console.log(bst.dfsPostOrder());
+// console.log(bst.bfs());
+
+class Node {
+	constructor(val) {
+		this.val = val;
+		this.left = null;
+		this.right = null;
+	}
+}
+
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// const d = new Node('d');
+// const e = new Node('e');
+// const f = new Node('f');
+
+// a.left = b;
+// a.right = c;
+// b.left = d;
+// b.right = e;
+// c.right = f;
+
+// //      a
+// //    /   \
+// //   b     c
+// //  / \     \
+// // d   e     f
+// const howHigh = (node) => {
+// 	if (node === null) return -1;
+
+// 	const leftTreeHeight = howHigh(node.left);
+// 	const rightTreeHeight = howHigh(node.right);
+// 	return 1 + Math.max(leftTreeHeight, rightTreeHeight);
+// };
+
+// console.log(howHigh(a)); // -> 2
+
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// const d = new Node('d');
+// const e = new Node('e');
+// const f = new Node('f');
+
+// a.left = b;
+// a.right = c;
+// b.left = d;
+// b.right = e;
+// c.right = f;
+
+// //      a
+// //    /   \
+// //   b     c
+// //  / \     \
+// // d   e     f
+// const allTreePaths = (root) => {
+// 	if (root === null) return [];
+// 	if (root.left === null && root.right === null) return [[root.val]];
+
+// 	const paths = [];
+// 	const leftSubPaths = allTreePaths(root.left);
+// 	for (let subPath of leftSubPaths) {
+// 		paths.push([root.val, ...subPath]);
+// 	}
+
+// 	const rightSubPaths = allTreePaths(root.right);
+// 	for (let subPath of rightSubPaths) {
+// 		paths.push([root.val, ...subPath]);
+// 	}
+
+// 	return paths;
+// };
+// console.log(allTreePaths(a)); // ->
+// // [
+//   [ 'a', 'b', 'd' ],
+//   [ 'a', 'b', 'e' ],
+//   [ 'a', 'c', 'f' ]
+// ]
+// Write a function, treeLevels, that takes in the root of a binary tree. The function should return a 2-Dimensional array where each subarray represents a level of the tree.
+
+// test_00:
+const a = new Node('a');
+const b = new Node('b');
+const c = new Node('c');
+const d = new Node('d');
+const e = new Node('e');
+const f = new Node('f');
 
 a.left = b;
 a.right = c;
@@ -871,44 +1165,75 @@ b.left = d;
 b.right = e;
 c.right = f;
 
-//       3
-//    /    \
-//   11     4
-//  / \      \
-// 4   -2     1
+//      a
+//    /   \
+//   b     c
+//  / \     \
+// d   e     f
+// const treeLevels = (root) => {
+// 	if (root === null) return [];
 
-const maxPathSum = (root) => {
-	if (root === null) return -Infinity;
-	if (root.left === null && root.right === null) return root.val;
-	const maxChild = Math.max(maxPathSum(root.left), maxPathSum(root.right));
+// 	const stack = [{ node: root, levelNum: 0 }];
 
-	return root.val + maxChild;
-};
+// 	let levels = [];
 
-console.log(maxPathSum(a)); // -> 18
-// Reverse Linked List
+// 	while (stack.length > 0) {
+// 		const { node, levelNum } = stack.pop();
 
-// const reverse = (root) => {
-// 	let current = root;
-// 	let prev = null;
-// 	while (current !== null) {
-// 		let next = current.next;
-// 		current.next = prev;
-// 		prev = current;
-// 		current = next;
-// 	}
-// // 	return prev;
-// // };
-
-// const hashMap = (string) => {
-// 	let count = {};
-// 	for (const char of string) {
-// 		if (!(char in count)) {
-// 			count[char] = 0;
+// 		if (levels.length === levelNum) {
+// 			levels.push([node.val]);
+// 		} else {
+// 			levels[levelNum].push(node.val);
 // 		}
-// 		count[char]++;
+// 		if (node.right !== null)
+// 			stack.push({ node: node.right, levelNum: levelNum + 1 });
+// 		if (node.left !== null)
+// 			stack.push({ node: node.left, levelNum: levelNum + 1 });
 // 	}
-// 	return count;
+// 	return levels;
 // };
 
-// console.log(hashMap('testtesttest'));
+// const treeLevels = (root) => {
+// 	if (root === null) return [];
+// 	const stack = [{ node: root, levelNum: 0 }];
+// 	const levels = []
+// 	while (stack.length) {
+// 		const { node, levelNum } = stack.pop();
+// 		if (levelNum === levels.length) {
+// 			levels.push([node.val])
+// 		} else {
+// 			levels[levelNum].push(node.val)
+// 		}
+
+// 		if (!node.right) stack.push({ node: node.right, levelNum: levelNum + 1 });
+// 		if (!node.left) stack.push({ node: node.left, levelNum: levelNum + 1 });
+
+// 	}
+// 	return levels;
+// };
+const treeLevels = (root) => {
+	const levels = [];
+	fillLevels(root, levels, 0);
+
+	return levels;
+};
+
+const fillLevels = (root, levels, levelNum) => {
+	if (root === null) return;
+
+	if (levelNum === levels.length) {
+		levels.push([node.val]);
+	} else {
+		levels[levelNum].push(node.val);
+	}
+
+	fillLevels(root.left, levels, levelNum + 1);
+	fillLevels(root.right, levels, levelNum + 1);
+};
+
+console.log(treeLevels(a)); // ->
+// [
+//   ['a'],
+//   ['b', 'c'],
+//   ['d', 'e', 'f']
+// ]
