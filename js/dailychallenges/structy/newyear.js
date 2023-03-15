@@ -1152,18 +1152,18 @@ class Node {
 // Write a function, treeLevels, that takes in the root of a binary tree. The function should return a 2-Dimensional array where each subarray represents a level of the tree.
 
 // test_00:
-const a = new Node('a');
-const b = new Node('b');
-const c = new Node('c');
-const d = new Node('d');
-const e = new Node('e');
-const f = new Node('f');
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// const d = new Node('d');
+// const e = new Node('e');
+// const f = new Node('f');
 
-a.left = b;
-a.right = c;
-b.left = d;
-b.right = e;
-c.right = f;
+// a.left = b;
+// a.right = c;
+// b.left = d;
+// b.right = e;
+// c.right = f;
 
 //      a
 //    /   \
@@ -1208,32 +1208,118 @@ c.right = f;
 // 		if (!node.right) stack.push({ node: node.right, levelNum: levelNum + 1 });
 // 		if (!node.left) stack.push({ node: node.left, levelNum: levelNum + 1 });
 
-// 	}
-// 	return levels;
+// // 	}
+// // 	return levels;
+// // };
+// const treeLevels = (root) => {
+// 	const levels = [];
+// 	fillLevels(root, levels, 0);
+
+// // 	return levels;
 // };
-const treeLevels = (root) => {
-	const levels = [];
-	fillLevels(root, levels, 0);
 
-	return levels;
-};
+// const fillLevels = (root, levels, levelNum) => {
+// 	if (root === null) return;
 
-const fillLevels = (root, levels, levelNum) => {
-	if (root === null) return;
+// 	if (levelNum === levels.length) {
+// 		levels.push([node.val]);
+// 	} else {
+// 		levels[levelNum].push(node.val);
+// 	}
 
-	if (levelNum === levels.length) {
-		levels.push([node.val]);
-	} else {
-		levels[levelNum].push(node.val);
-	}
+// 	fillLevels(root.left, levels, levelNum + 1);
+// 	fillLevels(root.right, levels, levelNum + 1);
+// };
 
-	fillLevels(root.left, levels, levelNum + 1);
-	fillLevels(root.right, levels, levelNum + 1);
-};
-
-console.log(treeLevels(a)); // ->
-// [
+// console.log(treeLevels(a)); // ->
+// // [
 //   ['a'],
 //   ['b', 'c'],
 //   ['d', 'e', 'f']
 // ]
+
+// Write a function, levelAverages, that takes in the root of a binary tree that contains number values. The function should return an array containing the average value of each level.
+
+// // test_00:
+// const a = new Node(3);
+// const b = new Node(11);
+// const c = new Node(4);
+// const d = new Node(4);
+// const e = new Node(-2);
+// const f = new Node(1);
+
+// a.left = b;
+// a.right = c;
+// b.left = d;
+// b.right = e;
+// c.right = f;
+
+// //       3
+// //    /    \
+// //   11     4
+// //  / \      \
+// // 4   -2     1
+
+// const levelAverages = (root) => {
+// 	const levels = [];
+// 	//call helper function to fill levels array
+// 	fillLevels(root, levels, 0);
+// 	//take levels array and average each array using .map
+// 	return levels.map((subArray) => {
+// 		return subArray.reduce((acc, c) => acc + c, 0) / subArray.length;
+// 	});
+// };
+// const fillLevels = (root, levels, currLevel) => {
+// 	if (root === null) return;
+// 	//Logic to fill each level correctly
+// 	if (levels.length === currLevel) {
+// 		levels.push([root.val]);
+// 	} else {
+// 		levels[currLevel].push(root.val);
+// 	}
+// 	//recursive
+// 	fillLevels(root.left, levels, currLevel + 1);
+// 	fillLevels(root.right, levels, currLevel + 1);
+// };
+
+// console.log(levelAverages(a)); // -> [ 3, 7.5, 1 ]
+// Write a function, leafList, that takes in the root of a binary tree and returns an array containing the values of all leaf nodes in left-to-right order.
+
+// test_00:
+const a = new Node('a');
+const b = new Node('b');
+const c = new Node('c');
+const d = new Node('d');
+const e = new Node('e');
+const f = new Node('f');
+
+a.left = b;
+a.right = c;
+b.left = d;
+b.right = e;
+c.right = f;
+
+//      a
+//    /   \
+//   b     c
+//  / \     \
+// d   e     f
+
+const leafList = (root) => {
+	if (root === null) return [];
+	const stack = [root];
+	const result = [];
+
+	while (stack.length) {
+		const current = stack.pop();
+		console.log(current.val);
+		if (!current.right && !current.left) result.push(current.val);
+
+		if (current.right) stack.push(current.right);
+		if (current.left) stack.push(current.left);
+	}
+
+	return result;
+};
+
+console.log(leafList(a)); // -> [ 'd', 'e', 'f' ]
