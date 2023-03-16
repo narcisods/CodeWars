@@ -1282,44 +1282,83 @@ class Node {
 // 	fillLevels(root.right, levels, currLevel + 1);
 // };
 
-// console.log(levelAverages(a)); // -> [ 3, 7.5, 1 ]
-// Write a function, leafList, that takes in the root of a binary tree and returns an array containing the values of all leaf nodes in left-to-right order.
+// // console.log(levelAverages(a)); // -> [ 3, 7.5, 1 ]
+// // Write a function, leafList, that takes in the root of a binary tree and returns an array containing the values of all leaf nodes in left-to-right order.
 
-// test_00:
-const a = new Node('a');
-const b = new Node('b');
-const c = new Node('c');
-const d = new Node('d');
-const e = new Node('e');
-const f = new Node('f');
+// // test_00:
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// const d = new Node('d');
+// const e = new Node('e');
+// const f = new Node('f');
 
-a.left = b;
-a.right = c;
-b.left = d;
-b.right = e;
-c.right = f;
+// a.left = b;
+// a.right = c;
+// b.left = d;
+// b.right = e;
+// c.right = f;
 
-//      a
-//    /   \
-//   b     c
-//  / \     \
-// d   e     f
+// //      a
+// //    /   \
+// //   b     c
+// //  / \     \
+// // d   e     f
 
-const leafList = (root) => {
-	if (root === null) return [];
-	const stack = [root];
-	const result = [];
+// const leafList = (root) => {
+// 	if (root === null) return [];
+// 	const stack = [root];
+// 	const result = [];
 
-	while (stack.length) {
-		const current = stack.pop();
-		console.log(current.val);
-		if (!current.right && !current.left) result.push(current.val);
+// 	while (stack.length) {
+// 		const current = stack.pop();
+// 		console.log(current.val);
+// 		if (!current.right && !current.left) result.push(current.val);
 
-		if (current.right) stack.push(current.right);
-		if (current.left) stack.push(current.left);
-	}
+// 		if (current.right) stack.push(current.right);
+// 		if (current.left) stack.push(current.left);
+// 	}
 
-	return result;
+// 	return result;
+// };
+
+// console.log(leafList(a)); // -> [ 'd', 'e', 'f' ]
+
+const graph = {
+	f: ['g', 'i'],
+	g: ['h'],
+	h: [],
+	i: ['g', 'k'],
+	j: ['i'],
+	k: [],
 };
 
-console.log(leafList(a)); // -> [ 'd', 'e', 'f' ]
+// const hasPath = (graph, src, dst) => {
+// 	const stack = [src];
+
+// 	while (stack.length) {
+// 		const current = stack.pop();
+
+// 		for (let neighbor of graph[current]) {
+// 			if (neighbor === dst) {
+// 				return true;
+// 				break;
+// 			}
+// 			stack.push(neighbor);
+// 		}
+// 	}
+// 	return false;
+// };
+
+const hasPath = (graph, src, dst) => {
+	if (src === dst) return true;
+	console.log(src);
+	for (let neighbor of graph[src]) {
+		if (hasPath(graph, neighbor, dst) === true) {
+			return true;
+		}
+	}
+	return false;
+};
+
+console.log(hasPath(graph, 'f', 'k')); // true
