@@ -1350,15 +1350,56 @@ const graph = {
 // 	return false;
 // };
 
-const hasPath = (graph, src, dst) => {
-	if (src === dst) return true;
-	console.log(src);
-	for (let neighbor of graph[src]) {
-		if (hasPath(graph, neighbor, dst) === true) {
-			return true;
-		}
-	}
-	return false;
-};
+// const hasPath = (graph, src, dst) => {
+// 	if (src === dst) return true;
+// 	console.log(src);
+// 	for (let neighbor of graph[src]) {
+// 		if (hasPath(graph, neighbor, dst) === true) {
+// 			return true;
+// 		}
+// 	}
+// 	return false;
+// };
 
-console.log(hasPath(graph, 'f', 'k')); // true
+// console.log(hasPath(graph, 'f', 'k')); // true
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+// /**
+//  * @param {TreeNode} root
+//  * @return {number[][]}
+//  */
+var zigzagLevelOrder = function (root) {
+	if (root === null) return [];
+	//Iterate through linked list by level
+	//Push value of each node to results array, keeping in mind level
+	const levels = [];
+	const stack = [{ node: root, currentLevel: 0 }];
+
+	while (stack.length) {
+		const { node, currentLevel } = stack.pop();
+
+		if (levels.length === currentLevel) {
+			levels.push([node.val]);
+		} else {
+			if (currentLevel % 2 === 0) {
+				levels[currentLevel].push(node.val);
+			} else {
+				levels[currentLevel].unshift(node.val);
+			}
+		}
+
+		// Checks for left and right node, pushes obj while tracking level
+		if (node.right)
+			stack.push({ node: node.right, currentLevel: currentLevel + 1 });
+		if (node.left)
+			stack.push({ node: node.left, currentLevel: currentLevel + 1 });
+	}
+	return levels;
+};
