@@ -1,4 +1,4 @@
-console.log('Codewars test');
+console.log('Leetcode test');
 // Date
 
 // Difficulty
