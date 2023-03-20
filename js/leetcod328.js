@@ -35,28 +35,25 @@ console.log('Leetcode test');
 
 //  * Definition for singly-linked list.
 var oddEvenList = function (head) {
-	// Handle base cases
-	if (!head || !head.next || !head.next.next) {
-		return head;
+	if (!head || !head.next || !head.next.next) return head;
+
+	let even = head;
+	//5
+	let odd = head.next;
+	let oddHead = odd;
+	//null
+
+	while (odd && odd.next) {
+		//handle even list
+		even.next = odd.next;
+		even = even.next;
+
+		//handles odd list
+		odd.next = even.next;
+		odd = even.next;
 	}
-
-	// Set two pointers
-	let cur = head;
-	let next = head.next;
-
-	// Set the odd.next to point to the next even node
-	// Move each pointer up one node on each iteration
-	while (next && next.next) {
-		const temp = next.next;
-		const temp2 = cur.next;
-
-		cur.next = temp;
-		next.next = temp.next;
-		temp.next = temp2;
-
-		cur = cur.next;
-		next = next.next;
-	}
+	//point tail of even list to head of oddlist
+	even.next = oddHead;
 
 	return head;
 };
