@@ -59,5 +59,3 @@ var connect = function (root) {
 
 	return root;
 };
-
-// Test Cases
