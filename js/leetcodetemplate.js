@@ -21,5 +21,3 @@ console.log('Codewars test');
 //
 
 // My Solution
-
-// Test Cases
