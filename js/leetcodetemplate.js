@@ -20,4 +20,4 @@ console.log('Codewars test');
 //PSEDUO CODE: Write pseduo code for everything
 //
 
-// My Solution
+// MY SOLUTION
