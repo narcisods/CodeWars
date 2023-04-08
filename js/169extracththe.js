@@ -50,3 +50,4 @@ function domainName(url) {
 	return url.split('.')[0];
 }
 //test
+//test
