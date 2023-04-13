@@ -49,4 +49,3 @@ function domainName(url) {
 	url = url.replace('www.', '');
 	return url.split('.')[0];
 }
-//test
